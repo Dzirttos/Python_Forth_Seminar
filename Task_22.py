@@ -20,7 +20,7 @@ os.system('cls')
 def create_array(x, start, end):
     a = []
     for i in range(0, x):
-        random_numbers = random.randint(start, end+1)
+        random_numbers = random.randint(start, end)
         a.append(random_numbers)
     return a
 
@@ -31,6 +31,11 @@ array_start = int(input('С какого числа должны быть сфо
 array_end = int(input('И до какого (каокой конец интервала)? '))
 
 f_array = create_array(n, array_start, array_end)
-print('Первый набор:', f_array)
+print('\033[33mПервый набор:', f_array)
 s_array = create_array(m, array_start, array_end)
-print('Первый набор:', s_array)
+print('\033[33mПервый набор:', s_array)
+
+f_set = set(f_array)
+s_set = set(s_array)
+final_set = f_set.intersection(s_set)
+print(f'\033[32mСледующие числа встречаются в обоих массивах {sorted(final_set)}')
